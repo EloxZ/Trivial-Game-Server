@@ -1,0 +1,27 @@
+{
+  "name": "Anagrammatix",
+  "description": "Anagram Multiplayer Game",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "easy-soap-request": "^4.7.0",
+    "express": "3.x",
+    "socket.io": "4.4.1",
+    "xml2js": "^0.4.23"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericterpstra/anagrammatix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericterpstra/anagrammatix/issues"
+  },
+  "homepage": "https://github.com/ericterpstra/anagrammatix"
+}
