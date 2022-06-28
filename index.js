@@ -20,11 +20,14 @@ app.configure(function() {
 });
 
 // Create a Node.js based http server on port 8082
-var server = require('http').createServer(app).listen(process.env.PORT || 8082);
+var port = process.env.PORT || 8082;
+var server = require('http').createServer(app).listen([port]);
 
 // Create a Socket.IO server and attach it to the http server
 var socketio = require('socket.io');
 var io = socketio(server);
+
+console.log('Listening in port ' + port);
 
 // Reduce the logging output of Socket.IO
 //io.set('log level',1);
