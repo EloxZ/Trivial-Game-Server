@@ -7,7 +7,7 @@ var path = require('path');
 // Create a new instance of Express
 var app = express();
 
-// Import the Anagrammatix game file.
+// Import the Trivia game file.
 var trivia = require('./trivia');
 
 // Create a simple Express application
@@ -30,6 +30,8 @@ var io = socketio(server);
 //io.set('log level',1);
 
 // Soap services
+
+/*
 const soapRequest = require('easy-soap-request');
 
 const url = "https://www.siette.org/siette/services/External";
@@ -57,12 +59,14 @@ var xml2js = require('xml2js');
 
 var parser = xml2js.Parser();
 
-
+*/
 
 
 // Authenticate
+/*
 io.use(async function(socket, next) {
     //var joinServerParameters = JSON.parse(socket.handshake.query.joinServerParameters);
+    /*
     try {
         const { response } = await soapRequest({ url: url, headers: sampleHeaders, xml: xml, timeout: 1000 }); // Optional timeout parameter(milliseconds)
         const { headers, body, statusCode } = response;
@@ -80,13 +84,15 @@ io.use(async function(socket, next) {
         next();          
     } else {
         next(new Error('Authentication error'));                  
-    }*/
+    }
     next();
 });
+*/
+
 
 // Listen for Socket.IO Connections. Once connected, start the game logic.
 io.sockets.on('connection', function (socket) {
-    console.log('First client connected, init game');
+    console.log('Client connected: ' + socket.id);
     trivia.initGame(io, socket);
 });
 
